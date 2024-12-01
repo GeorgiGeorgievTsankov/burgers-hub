@@ -5,15 +5,20 @@ const Header = () => {
     <header className="bg-zinc-950/50 text-white py-4 fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Logo */}
-        <h1 className="text-xl font-bold">BURGERS<span className="text-red-600">HUB</span></h1>
+        <h1 className="text-xl font-bold">
+          BURGERS<span className="text-red-600">HUB</span>
+        </h1>
 
         {/* Menu */}
         <nav className="hidden md:flex space-x-6">
-          <Link to="/" className="hover:underline">
+          <Link to="/" className="hover:text-red-600 text-lg">
             Home
           </Link>
-          <Link to="/menu" className="hover:underline">
+          <Link to="/menu" className="hover:text-red-600 text-lg ">
             Menu
+          </Link>
+          <Link to="/menu" className="hover:text-red-600 text-lg ">
+            Contact
           </Link>
         </nav>
 
@@ -43,4 +48,3 @@ const Header = () => {
 };
 
 export default Header;
-
