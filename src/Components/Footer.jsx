@@ -1,17 +1,29 @@
 const Footer = () => {
     return (
-      <footer className="bg-gray-200 p-4 text-center">
-        <p className="text-sm text-gray-600">
-          &copy; {new Date().getFullYear()} Burgers Hub. All Rights Reserved.
-        </p>
-        <nav className="mt-2">
-          <a href="/" className="mx-2 text-yellow-500 hover:underline">Home</a>
-          <a href="/menu" className="mx-2 text-blue-500 hover:underline">menu</a>
-          <a href="/contact" className="mx-2 text-blue-500 hover:underline">Contact</a>
-        </nav>
+      <footer className="bg-black p-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between">
+          {/* Левият текст */}
+          <p className="text-sm text-white text-center sm:text-left">
+            &copy; {new Date().getFullYear()} BURGERS<span className="text-red-600">HUB</span>. All Rights Reserved.
+          </p>
+  
+          {/* Десните линкове */}
+          <nav className="mt-2 sm:mt-0 flex space-x-4">
+            <a href="/" className="text-white hover:text-red-600">
+              Home
+            </a>
+            <a href="/menu" className="text-white hover:text-red-600">
+              Menu
+            </a>
+            <a href="/contact" className="text-white hover:text-red-600">
+              Contact
+            </a>
+          </nav>
+        </div>
       </footer>
     );
   };
   
   export default Footer;
+  
   
