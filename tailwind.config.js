@@ -7,6 +7,7 @@ export default {
     extend: {
       backgroundImage: {
         'burger-bg': "url('/src/assets/img/home-background (2).jpg')", 
+        'not-found':"url('/src/assets/img/contacts-bg.jpg')"
       },
     },
   },
