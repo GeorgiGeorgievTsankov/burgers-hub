@@ -22,8 +22,8 @@ function Menu() {
   }
 
   return (
-      <>
-          <h1 className="text-7xl justify-center text-center mt-20 ">PIZZA MENU</h1>
+    <>
+      <h1 className="text-7xl justify-center text-center mt-20 ">PIZZA MENU</h1>
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 p-6">
         {menu.map((pizza) => (
           <li
@@ -39,7 +39,7 @@ function Menu() {
               {pizza.name}
             </h3>
             <p className="text-gray-600 text-sm mb-2">
-              Ingredients: {pizza.ingredients}
+              {pizza.ingredients.join(", ")}
             </p>
             <p className="text-gray-800 font-semibold text-lg mb-4">
               {pizza.unitPrice}$
