@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMenu } from "../menu/menuSlice";
+import { Link } from "react-router-dom";
 
 function Menu() {
   const dispatch = useDispatch();
   const { items: menu, loading, error } = useSelector((state) => state.menu);
-  // const { id, name, unitPrice, ingredients, soldOut, imageUrl } = menu;
-  console.log(menu);
 
-  // Извличане на менюто при зареждане на компонента
+  
+
   useEffect(() => {
     dispatch(fetchMenu());
   }, [dispatch]);
@@ -47,12 +47,13 @@ function Menu() {
             {pizza.soldOut ? (
               <p className="text-red-500 text-sm font-bold">Sold Out</p>
             ) : (
-              <button
+              <Link
+                to={`/menu/${pizza.id}`}
                 className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-                onClick={() => alert(`Viewing details for ${pizza.name}`)}
+                // onClick={() => alert(`Viewing details for ${pizza.name}`)}
               >
                 View Details
-              </button>
+              </Link>
             )}
           </li>
         ))}
