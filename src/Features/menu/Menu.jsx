@@ -7,8 +7,6 @@ function Menu() {
   const dispatch = useDispatch();
   const { items: menu, loading, error } = useSelector((state) => state.menu);
 
-  
-
   useEffect(() => {
     dispatch(fetchMenu());
   }, [dispatch]);
@@ -22,44 +20,51 @@ function Menu() {
   }
 
   return (
-    <>
-      <h1 className="text-7xl justify-center text-center mt-20 ">PIZZA MENU</h1>
-      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 p-6">
+    <div className="bg-paper-bg p-16">
+      {/* Заглавие на менюто */}
+      <div className="text-center md:pt-10 pb-5 sm:pb-0">
+        <h1 className="text-7xl font-bold text-gray-800">Burgers</h1>
+      </div>
+  
+      {/* Мрежа с елементите на менюто */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 sm:p-24">
         {menu.map((pizza) => (
-          <li
+          <div
             key={pizza.id}
-            className="sm:mt-2 bg-white shadow-lg rounded-lg p-6 flex flex-col items-center"
+            className="bg-gray-100 p-2 overflow-hidden cursor-pointer"
           >
-            <img
-              src={pizza.imageUrl}
-              alt={pizza.name}
-              className="w-48 h-48 object-cover rounded-lg mb-4"
-            />
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
-              {pizza.name}
-            </h3>
-            <p className="text-gray-600 text-sm mb-2">
-              {pizza.ingredients.join(", ")}
-            </p>
-            <p className="text-gray-800 font-semibold text-lg mb-4">
-              {pizza.unitPrice}$
-            </p>
-            {pizza.soldOut ? (
-              <p className="text-red-500 text-sm font-bold">Sold Out</p>
-            ) : (
-              <Link
-                to={`/menu/${pizza.id}`}
-                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-                // onClick={() => alert(`Viewing details for ${pizza.name}`)}
-              >
-                View Details
-              </Link>
-            )}
-          </li>
+            <div className="bg-white flex flex-col h-full">
+              <div className="w-full h-[250px] overflow-hidden mx-auto">
+                <img
+                  src={pizza.imageUrl}
+                  alt={pizza.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="p-6 text-center flex-1">
+                <h3 className="text-lg font-bold text-gray-800">{pizza.name}</h3>
+                <p>{pizza.ingredients.join(", ")}</p>
+                <h4 className="text-xl text-gray-800 font-bold mt-3">
+                  {pizza.unitPrice}$
+                </h4>
+              </div>
+              {pizza.soldOut ? (
+                <p className="text-red-500 text-2xl font-bold">Sold Out</p>
+              ) : (
+                <Link
+                  to={`/menu/${pizza.id}`}
+                  className="bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                >
+                  View Details
+                </Link>
+              )}
+            </div>
+          </div>
         ))}
-      </ul>
-    </>
+      </div>
+    </div>
   );
+  
 }
 
 export default Menu;
