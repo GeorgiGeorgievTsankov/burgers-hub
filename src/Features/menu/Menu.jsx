@@ -7,6 +7,8 @@ function Menu() {
   const dispatch = useDispatch();
   const { items: menu, loading, error } = useSelector((state) => state.menu);
 
+//   {"id":18,"name":"Tofu and Mushroom","unitPrice":15,"imageUrl":"https://dclaevazetcjjkrzczpc.supabase.co/storage/v1/object/public/pizzas/pizza-18.jpg","ingredients":["marinara","mozzarella","tofu","mushrooms","bell peppers"],"soldOut":false}]}
+
   useEffect(() => {
     dispatch(fetchMenu());
   }, [dispatch]);

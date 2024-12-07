@@ -1,11 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Review from "../Components/Review";
+import QuantitySelector from "../Components/QuantitySelector";
+import { addItem, getCurrentQuantityById } from "../Features/cart/cartSlice";
 
 function BurgerDetails() {
   const { pizzaId } = useParams();
   const menu = useSelector((state) => state.menu?.items);
+    const dispatch = useDispatch();
+    
+
+    
+
+    
 
   if (!menu || menu.length === 0) {
     return <p>Loading menu data...</p>;
@@ -17,8 +25,28 @@ function BurgerDetails() {
     return <p>Pizza not found!</p>;
   }
 
-  return (  
-    <div className="bg-paper-bg bg-center bg-cover h-auto w-full justify-around px-28 h-screen flex flex-col md:flex-row pt-16">
+  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+
+  const currentQuantity = useSelector(getCurrentQuantityById(id));
+
+  const isInCart = currentQuantity > 0;
+
+  function handleAddToCart() {
+    const newItem = {
+      pizzaId: id,
+      name,
+      quantity: 1,
+      unitPrice,
+      totalPrice: unitPrice * 1,
+    };
+    dispatch(addItem(newItem));
+    }
+    
+   
+    
+
+  return (
+    <div className="bg-paper-bg bg-center bg-cover h-auto w-full justify-around px-28 flex flex-col md:flex-row pt-16">
       {/* <!-- Box-1 (35% with) --> */}
       <div className="w-[400px] pt-14 flex flex-col space-y-6">
         {/* Ingredients */}
@@ -41,9 +69,7 @@ function BurgerDetails() {
                 value="Classic Sesame Bun"
                 className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
               />
-              <span className="text-xl text-gray-800">
-              Classic Sesame Bun
-              </span>
+              <span className="text-xl text-gray-800">Classic Sesame Bun</span>
             </label>
 
             {/* Second */}
@@ -83,7 +109,7 @@ function BurgerDetails() {
           />
         </div>
 
-        <div class="flex-1 text-gray-800">
+        <div className="flex-1 text-gray-800">
           <div className="flex flex-col text-center ">
             <h2 className="text-5xl font-bold p-2">{pizza.name}</h2>
             <h2 className="text-3xl font-bold">390 г</h2>
@@ -93,53 +119,25 @@ function BurgerDetails() {
           <div className="inline-block align-middle text-3xl">
             <strong>Price:</strong> ${pizza.unitPrice}
           </div>
-          <div className="align-middle font-bold">
-            <div class="flex divide-x border w-max rounded-lg overflow-hidden">
-              <button
-                type="button"
-                class="flex items-center justify-center bg-gray-100 w-10 h-10 font-semibold"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-3 fill-current"
-                  viewBox="0 0 124 124"
-                >
-                  <path
-                    d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"
-                    data-original="#000000"
-                  ></path>
-                </svg>
-              </button>
-              <button
-                type="button"
-                class="bg-transparent w-10 h-10 font-semibold text-gray-800 text-base"
-              >
-                1
-              </button>
-              <button
-                type="button"
-                class="flex justify-center items-center bg-gray-800 text-white w-10 h-10 font-semibold"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-3 fill-current"
-                  viewBox="0 0 42 42"
-                >
-                  <path
-                    d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z"
-                    data-original="#000000"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-          </div>
+          {/* QuantitySelector */}
+          {isInCart && (
+            <QuantitySelector
+              pizzaId={pizza.id}
+              currentQuantity={currentQuantity}
+            />
+          )}
+
+          {/* Button */}
           <div className="align-middle">
-            <button
-              className="w-full px-2 bg-gray-800 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
-              onClick={() => alert("Added to cart!")}
-            >
-              Add to Cart
-            </button>
+            {!soldOut && !isInCart && (
+                  <button
+                  className="w-full px-2 bg-gray-800 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
+                  onClick={handleAddToCart}
+                >
+                  Add to Cart
+                </button>
+            )}
+                  
           </div>
         </div>
       </div>

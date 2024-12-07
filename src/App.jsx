@@ -9,6 +9,7 @@ import BurgerDetails from './Pages/BurgerDetails.jsx';
 import './index.css';
 
 
+
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/menu/:pizzaId" element={<BurgerDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+     
       <Footer />
     </Router>
   );
