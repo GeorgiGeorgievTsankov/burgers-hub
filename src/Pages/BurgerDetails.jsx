@@ -4,16 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Review from "../Components/Review";
 import QuantitySelector from "../Components/QuantitySelector";
 import { addItem, getCurrentQuantityById } from "../Features/cart/cartSlice";
+import DeleteItem from "../Features/cart/DeleteItem";
 
 function BurgerDetails() {
   const { pizzaId } = useParams();
   const menu = useSelector((state) => state.menu?.items);
-    const dispatch = useDispatch();
-    
 
-    
-
-    
+  const dispatch = useDispatch();
 
   if (!menu || menu.length === 0) {
     return <p>Loading menu data...</p>;
@@ -40,10 +37,7 @@ function BurgerDetails() {
       totalPrice: unitPrice * 1,
     };
     dispatch(addItem(newItem));
-    }
-    
-   
-    
+  }
 
   return (
     <div className="bg-paper-bg bg-center bg-cover h-auto w-full justify-around px-28 flex flex-col md:flex-row pt-16">
@@ -130,14 +124,14 @@ function BurgerDetails() {
           {/* Button */}
           <div className="align-middle">
             {!soldOut && !isInCart && (
-                  <button
-                  className="w-full px-2 bg-gray-800 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
-                  onClick={handleAddToCart}
-                >
-                  Add to Cart
-                </button>
+              <button
+                className="w-full px-2 bg-gray-800 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </button>
             )}
-                  
+            {isInCart && <DeleteItem pizzaId={pizza.id} />}
           </div>
         </div>
       </div>

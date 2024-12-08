@@ -23,12 +23,12 @@ function Menu() {
 
   return (
     <div className="bg-paper-bg p-16">
-      {/* Заглавие на менюто */}
+  
       <div className="text-center md:pt-10 pb-5 sm:pb-0">
         <h1 className="text-7xl font-bold text-gray-800">Burgers</h1>
       </div>
   
-      {/* Мрежа с елементите на менюто */}
+     
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 sm:p-24">
         {menu.map((pizza) => (
           <div
