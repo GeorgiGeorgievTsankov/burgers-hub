@@ -34,7 +34,8 @@ function BurgerDetails() {
       name,
       quantity: 1,
       unitPrice,
-      totalPrice: unitPrice * 1,
+        totalPrice: unitPrice * 1,
+      itemImg:imageUrl,
     };
     dispatch(addItem(newItem));
   }

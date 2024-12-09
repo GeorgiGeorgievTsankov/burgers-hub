@@ -7,6 +7,8 @@ import Menu from '../src/Features/menu/Menu.jsx';
 import Footer from './Components/Footer.jsx';
 import BurgerDetails from './Pages/BurgerDetails.jsx';
 import './index.css';
+import Cart from './Features/cart/Cart.jsx';
+import EmptyCart from './Features/cart/EmptyCart.jsx';
 
 
 
@@ -17,7 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path='/empty-cart' element={<EmptyCart />} />
         <Route path="/menu/:pizzaId" element={<BurgerDetails />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
      

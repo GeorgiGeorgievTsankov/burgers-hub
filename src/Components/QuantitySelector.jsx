@@ -16,7 +16,7 @@ const QuantitySelector = ({ pizzaId, currentQuantity }) => {
         {/* Minus Button */}
         <button
           type="button"
-          className="flex items-center justify-center bg-gray-100 w-10 h-10 font-semibold"
+          className="flex items-center justify-center bg-gray-100 lg:w-10 lg:h-10 w-6 h-6 font-semibold"
           onClick={() => dispatch(decreaseItemQuantity(pizzaId))}
         >
           <svg
@@ -34,7 +34,7 @@ const QuantitySelector = ({ pizzaId, currentQuantity }) => {
         {/* Quantity Display */}
         <button
           type="button"
-          className="bg-transparent w-10 h-10 font-semibold text-gray-800 text-base"
+          className="bg-transparent lg:w-10 lg:h-10 w-6 h-6 font-semibold text-gray-800 text-base"
         >
           {currentQuantity}
         </button>
@@ -42,7 +42,7 @@ const QuantitySelector = ({ pizzaId, currentQuantity }) => {
         {/* Plus Button */}
         <button
           type="button"
-          className="flex justify-center items-center bg-gray-800 text-white w-10 h-10 font-semibold"
+          className="flex justify-center items-center bg-gray-800 text-white w-6 h-6 lg:w-10 lg:h-10 font-semibold"
           onClick={() => dispatch(increaseItemQuantity(pizzaId))}
         >
           <svg
