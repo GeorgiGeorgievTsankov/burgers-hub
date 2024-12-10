@@ -9,6 +9,7 @@ import BurgerDetails from './Pages/BurgerDetails.jsx';
 import './index.css';
 import Cart from './Features/cart/Cart.jsx';
 import EmptyCart from './Features/cart/EmptyCart.jsx';
+import CreateOrder from './Features/order/CreateOrder.jsx';
 
 
 
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/order" element={<CreateOrder />} />
         <Route path='/empty-cart' element={<EmptyCart />} />
         <Route path="/menu/:pizzaId" element={<BurgerDetails />} />
         <Route path="/cart" element={<Cart />} />
