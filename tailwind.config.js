@@ -8,7 +8,8 @@ export default {
       backgroundImage: {
         'burger-bg': "url('/src/assets/img/home-background (2).jpg')", 
         'not-found': "url('/src/assets/img/contacts-bg.jpg')",
-        'paper-bg':"url('/src/assets/img//paper-bg.jpg')",
+        'paper-bg': "url('/src/assets/img//paper-bg.jpg')",
+        'enjoy-bg':"url('/src/assets/img//enjoy-bg.jpg')",
       },
     },
   },

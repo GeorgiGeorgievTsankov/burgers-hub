@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { getCart, getTotalCartPrice } from "../cart/cartSlice";
+import { Link } from "react-router-dom";
 
 function CreateOrder() {
   const cart = useSelector(getCart);
@@ -9,7 +10,7 @@ function CreateOrder() {
   const [tax, setTax] = useState(2);
   const finalPrice = totalCartPrice + tax + shipping;
 
-  console.log(cart);
+    
 
   return (
     <div className="font-[sans-serif] bg-white p-20">
@@ -63,7 +64,7 @@ function CreateOrder() {
         {/* Complete-Your-Order */}
         <div className="max-w-4xl w-full h-max rounded-md px-4 py-8 sticky top-0">
           <h2 className="text-2xl font-bold text-gray-800">
-            Complete your order
+            Complete your order and pay on delivery.
           </h2>
           <form className="mt-8">
             <div>
@@ -141,13 +142,20 @@ function CreateOrder() {
                   type="button"
                   className="rounded-md px-6 py-3 w-full text-sm tracking-wide bg-transparent hover:bg-gray-100 border border-gray-400 text-gray-800 max-md:order-1"
                 >
-                  Cancel
+                  <Link to="/cart" className="block w-full h-full text-center">
+                    Cancel
+                  </Link>
                 </button>
                 <button
                   type="button"
                   className="rounded-md px-6 py-3 w-full text-sm tracking-wide bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  Complete Purchase
+                  <Link
+                    to="/thank-you"
+                    className="block w-full h-full text-center"
+                  >
+                    Complete Purchase
+                  </Link>
                 </button>
               </div>
             </div>
