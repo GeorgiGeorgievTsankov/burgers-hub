@@ -1,12 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { clearCart } from "../cart/cartSlice";
+import { updateName } from "../user/userSlice";
 
 function ThankYouPage() {
+  const dispatch = useDispatch();
   const name = useSelector((state) => state.user.username);
 
-  console.log(name);
+  useEffect(() => {
+    dispatch(updateName());
+    dispatch(clearCart());
+  }, []);
 
-  if (!name) return null;
+  setTimeout(() => {
+    window.location.href = "/";
+  }, 3000);
 
   return (
     <div className="bg-enjoy-bg min-h-screen bg-cover flex bg-center items-center justify-center">
@@ -15,14 +24,8 @@ function ThankYouPage() {
           Thank you for your order {name} !
         </h1>
         <p className="text-white text-4xl  m-4">
-        Your order is being prepared. Thank you for choosing us!
+          Your order is being prepared. Thank you for choosing us!
         </p>
-        <button
-          className="w-[200px] bg-gray-800 m-auto text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
-          onClick={() => (window.location.href = "/")}
-        >
-          Back to Home
-        </button>
       </div>
     </div>
   );
