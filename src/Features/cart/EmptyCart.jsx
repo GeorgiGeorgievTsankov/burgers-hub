@@ -2,11 +2,16 @@ import { Link } from "react-router-dom";
 
 function EmptyCart() {
   return (
-    <div className="px-4 py-3 flex justify-start align-middle h-80">
-     <div className="m-auto"> <Link to="/menu" className="text-blue-700 font-semibold"> ← Back to menu</Link>
-      <p className="mt-7 font-semibold">
-        Your cart is still empty. Start adding some pizzas :)
-      </p></div>
+    <div className="bg-empty-bg  px-4 py-3 flex justify-start align-middle h-80 min-h-screen bg-cover bg-center">
+      <div className="m-auto">
+        <Link to="/menu" className="text-blue-700 text-2xl font-semibold">
+          ← Back to menu
+        </Link>
+        <p className="mt-7 font-semibold text-5xl text-white drop-shadow-xl">
+  Your cart is still empty. Start adding some pizzas :)
+</p>
+
+      </div>
     </div>
   );
 }
