@@ -10,6 +10,7 @@ function CreateOrder() {
   const [tax, setTax] = useState(2);
   const finalPrice = totalCartPrice + tax + shipping;
 
+    console.log(cart);
     
 
   return (
@@ -21,7 +22,8 @@ function CreateOrder() {
               <div className="space-y-4">
                 {cart.map((item) => {
                   return (
-                    <div key={item.id} className="flex items-start gap-4">
+                    <div key={item.pizzaId
+                    } className="flex items-start gap-4">
                       <div className="w-32 h-30 max-lg:w-24 max-lg:h-24 flex ">
                         <img
                           src={item.itemImg}
@@ -143,7 +145,7 @@ function CreateOrder() {
                   className="rounded-md px-6 py-3 w-full text-sm tracking-wide bg-transparent hover:bg-gray-100 border border-gray-400 text-gray-800 max-md:order-1"
                 >
                   <Link to="/cart" className="block w-full h-full text-center">
-                    Cancel
+                    Cancel 
                   </Link>
                 </button>
                 <button

@@ -7,7 +7,7 @@ import EmptyCart from "./EmptyCart";
 import QuantitySelector from "../../Components/QuantitySelector";
 
 function Cart() {
-  const username = useSelector((state) => state.user.username);
+//   const username = useSelector((state) => state.user.username);
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function Cart() {
         <div className="flex-1 p-1">
           <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
             {cart.map((item) => (
-              <div key={item.pizzaId} class="space-y-4">
+              <div key={item.pizzaId} className="space-y-4">
                 <div className="grid grid-cols-3 items-start gap-4">
                   <div className="col-span-2 flex items-start gap-4">
                     <div className="w-28 h-28 max-sm:w-24 max-sm:h-24 shrink-0 bg-gray-100 p-2 rounded-md">
@@ -70,28 +70,28 @@ function Cart() {
         </div>
 
         {/* Order Summary */}
-        <div class="w-full md:w-1/3 bg-gray-100 rounded-md p-4 h-max">
-          <h3 class="text-lg max-sm:text-base font-bold text-gray-800 border-b border-gray-300 pb-2">
+        <div className="w-full md:w-1/3 bg-gray-100 rounded-md p-4 h-max">
+          <h3 className="text-lg max-sm:text-base font-bold text-gray-800 border-b border-gray-300 pb-2">
             Order Summary
           </h3>
           <ul className="text-gray-800 mt-6 space-y-3">
             <li className="flex flex-wrap gap-4 text-sm">
               Subtotal{" "}
-              <span class="ml-auto font-bold">
+              <span className="ml-auto font-bold">
                 ${totalCartPrice.toFixed(2)}
               </span>
             </li>
-            <li class="flex flex-wrap gap-4 text-sm">
-              Shipping <span class="ml-auto font-bold">${shipping}.00</span>
+            <li className="flex flex-wrap gap-4 text-sm">
+              Shipping <span className="ml-auto font-bold">${shipping}.00</span>
             </li>
             <li className="flex flex-wrap gap-4 text-sm">
-              Tax <span class="ml-auto font-bold">${tax}.00</span>
+              Tax <span className="ml-auto font-bold">${tax}.00</span>
             </li>
             <li className="flex flex-wrap gap-4 text-base font-bold">
-              Total <span class="ml-auto">${finalPrice.toFixed(2)}</span>
+              Total <span className="ml-auto">${finalPrice.toFixed(2)}</span>
             </li>
           </ul>
-          <div class="mt-6 space-y-3">
+          <div className="mt-6 space-y-3">
             <Link to="/order">
               <button
                 type="button"
