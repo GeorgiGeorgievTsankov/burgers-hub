@@ -34,8 +34,8 @@ function BurgerDetails() {
       name,
       quantity: 1,
       unitPrice,
-        totalPrice: unitPrice * 1,
-      itemImg:imageUrl,
+      totalPrice: unitPrice * 1,
+      itemImg: imageUrl,
     };
     dispatch(addItem(newItem));
   }
@@ -95,38 +95,46 @@ function BurgerDetails() {
       </div>
 
       {/* <!-- Box-2 (65% with) --> */}
-      <div className="w-full md:w-3/5 flex flex-col">
-        <div className="flex-1 h-2/3 p-10 flex items-center justify-center">
+      <div className="w-full md:w-3/5 flex flex-col gap-6">
+        {/* Image Section */}
+        <div className="flex-1 h-2/3 p-4 md:p-10 flex items-center justify-center">
           <img
             src={pizza.imageUrl}
             alt={pizza.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full max-h-[300px] md:max-h-[500px] object-cover rounded-lg shadow-lg"
           />
         </div>
 
+        {/* Text Section */}
         <div className="flex-1 text-gray-800">
-          <div className="flex flex-col text-center ">
-            <h2 className="text-5xl font-bold p-2">{pizza.name}</h2>
-            <h2 className="text-3xl font-bold">390 г</h2>
+          <div className="flex flex-col text-center gap-2">
+            <h2 className="text-3xl md:text-5xl font-bold p-2">{pizza.name}</h2>
+            <h2 className="text-xl md:text-3xl font-bold">390 г</h2>
           </div>
         </div>
-        <div className="text-gray-800 flex-1 flex justify-around align-center">
-          <div className="inline-block align-middle text-3xl">
+
+        {/* Price, Quantity, and Buttons Section */}
+        <div className="text-gray-800 flex-1 flex flex-col md:flex-row justify-between items-center gap-4 p-4">
+          {/* Price */}
+          <div className="text-2xl md:text-3xl">
             <strong>Price:</strong> ${pizza.unitPrice}
           </div>
-          {/* QuantitySelector */}
+
+          {/* Quantity Selector */}
           {isInCart && (
-            <QuantitySelector
-              pizzaId={pizza.id}
-              currentQuantity={currentQuantity}
-            />
+            <div className="w-full md:w-auto flex justify-center">
+              <QuantitySelector
+                pizzaId={pizza.id}
+                currentQuantity={currentQuantity}
+              />
+            </div>
           )}
 
-          {/* Button */}
-          <div className="align-middle">
+          {/* Buttons */}
+          <div className="w-full md:w-auto">
             {!soldOut && !isInCart && (
               <button
-                className="w-full px-2 bg-gray-800 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
+                className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-blue-600 transition-all"
                 onClick={handleAddToCart}
               >
                 Add to Cart
