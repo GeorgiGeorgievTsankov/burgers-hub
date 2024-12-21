@@ -123,7 +123,7 @@ function CreateOrder() {
                     required
                   />
                 </div>
-                <div>
+                {/* <div>
                   <input
                     type="text"
                     placeholder="State"
@@ -138,7 +138,7 @@ function CreateOrder() {
                     className="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-blue-600"
                     required
                   />
-                </div>
+                </div> */}
               </div>
               <div className="flex gap-4 max-md:flex-col mt-8">
                 <button
