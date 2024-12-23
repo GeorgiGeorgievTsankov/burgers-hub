@@ -41,7 +41,7 @@ function BurgerDetails() {
   }
 
   return (
-    <div className="bg-paper-bg bg-center bg-cover h-auto w-full justify-around px-28 flex flex-col md:flex-row pt-16">
+    <div className="bg-paper-bg bg-center bg-cover h-auto w-full justify-around px-8 md:px-28 flex flex-col md:flex-row pt-16">
       {/* <!-- Box-1 (35% with) --> */}
       <div className="w-[400px] pt-14 flex flex-col space-y-6">
         {/* Ingredients */}
