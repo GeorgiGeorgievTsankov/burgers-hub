@@ -43,28 +43,31 @@ function BurgerDetails() {
   return (
     <div className="bg-paper-bg bg-center bg-cover h-auto w-full justify-around px-8 md:px-28 flex flex-col md:flex-row pt-16">
       {/* <!-- Box-1 (35% with) --> */}
-      <div className="w-[400px] pt-14 flex flex-col space-y-6">
+      <div className="w-full max-w-[400px] mx-auto pt-14 flex flex-col space-y-6 sm:max-w-full">
         {/* Ingredients */}
-        <div className="relative bg-white px-2 py-5 rounded-lg shadow-2xl">
-          <div className="absolute text-center bg-gray-800 text-white text-2xl px-4 py-1 rounded-lg top-[-20px] left-1/2 transform -translate-x-1/2">
+        <div className="relative bg-white px-4 py-5 rounded-lg shadow-2xl sm:px-6">
+          <div className="absolute text-center bg-gray-800 text-white text-xl px-4 py-1 rounded-lg top-[-20px] left-1/2 transform -translate-x-1/2">
             <strong>Ingredients:</strong>
           </div>
-          <p className="text-gray-800 text-2xl text-center mt-10">
+          <p className="text-gray-800 text-lg text-center mt-10 sm:text-xl">
             {pizza.ingredients.join(", ")}
           </p>
         </div>
+
         {/* Radio button */}
-        <div className="relative bg-white px-12 py-10 rounded-lg shadow-2xl">
-          <div className="">
+        <div className="relative bg-white px-6 py-6 rounded-lg shadow-2xl sm:px-8 sm:py-8">
+          <div>
             {/* First */}
-            <label className="flex items-center space-x-4">
+            <label className="flex items-center space-x-4 mb-4">
               <input
                 type="radio"
                 name="pizzaType"
                 value="Classic Sesame Bun"
                 className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
               />
-              <span className="text-xl text-gray-800">Classic Sesame Bun</span>
+              <span className="text-base text-gray-800 sm:text-lg">
+                Classic Sesame Bun
+              </span>
             </label>
 
             {/* Second */}
@@ -75,7 +78,9 @@ function BurgerDetails() {
                 value="Brioche Bun"
                 className="w-5 h-5 text-gray-800 bg-gray-100 border-gray-300 focus:ring-blue-500"
               />
-              <span className="text-xl text-gray-800">Brioche Bun</span>
+              <span className="text-base text-gray-800 sm:text-lg">
+                Brioche Bun
+              </span>
             </label>
           </div>
         </div>
@@ -84,9 +89,9 @@ function BurgerDetails() {
         <Review />
 
         {/* "Back to Menu" */}
-        <div className="flex w-full justify-start pt-5">
+        <div className="flex w-full justify-center pt-5">
           <button
-            className="w-[200px] bg-gray-800 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
+            className="w-full max-w-[200px] bg-gray-800 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
             onClick={() => window.history.back()}
           >
             Back to Menu
