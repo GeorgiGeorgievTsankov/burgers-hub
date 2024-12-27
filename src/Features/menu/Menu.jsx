@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMenu } from "../menu/menuSlice";
 import { Link } from "react-router-dom";
+import Loader from "../../Components/Loader";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function Menu() {
   }, [dispatch]);
 
   if (loading) {
-    return <div>Loading menu...</div>;
+    return <Loader />
   }
 
   if (error) {
