@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Review from "../Components/Review";
+import { useParams } from "react-router-dom";
 import QuantitySelector from "../Components/QuantitySelector";
+import Review from "../Components/Review";
 import { addItem, getCurrentQuantityById } from "../Features/cart/cartSlice";
 import DeleteItem from "../Features/cart/DeleteItem";
 
