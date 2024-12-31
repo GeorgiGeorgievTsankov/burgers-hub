@@ -43,7 +43,7 @@ function BurgerDetails() {
   return (
     <div className="bg-paper-bg bg-center bg-cover h-auto w-full justify-around px-8 md:px-28 flex flex-col md:flex-row pt-16">
       {/* <!-- Box-1 (35% with) --> */}
-      <div className="w-full max-w-[400px] mx-auto pt-14 flex flex-col space-y-6 sm:max-w-full">
+      <div className="w-full max-w-[400px] md:w-2/5 pt-14 md:px-5 flex flex-col space-y-6 sm:max-w-full">
         {/* Ingredients */}
         <div className="relative bg-white px-4 py-5 rounded-lg shadow-2xl sm:px-6">
           <div className="absolute text-center bg-gray-800 text-white text-xl px-4 py-1 rounded-lg top-[-20px] left-1/2 transform -translate-x-1/2">
@@ -100,7 +100,7 @@ function BurgerDetails() {
       </div>
 
       {/* <!-- Box-2 (65% with) --> */}
-      <div className="w-full md:w-3/5 flex flex-col gap-6">
+      <div className="w-full md:w-3/5 flex flex-col gap-6 md:px-5">
         {/* Image Section */}
         <div className="flex-1 h-2/3 p-4 md:p-10 flex items-center justify-center">
           <img
